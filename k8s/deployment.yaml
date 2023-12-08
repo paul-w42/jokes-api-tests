@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: starwars-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      class: sdev372
+  template:
+    metadata:
+      labels:
+        class: sdev372
+    spec:
+      containers:
+        - name: starwars-container
+          image: archerjb/starwars
+          ports:
+            - containerPort: 8080
